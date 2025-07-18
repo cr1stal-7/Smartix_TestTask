@@ -2,6 +2,7 @@ package com.example.testTask.controller;
 
 import com.example.testTask.model.Category;
 import com.example.testTask.service.CategoryService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,7 @@ public class CategoryController {
     }
 
     @GetMapping("/unique")
+    @Tag(name = "Получение списка уникальных категорий товаров")
     public ResponseEntity<List<Category>> getAllUniqueCategories() {
         return ResponseEntity.ok(categoryService.findAllUniqueCategories());
     }
